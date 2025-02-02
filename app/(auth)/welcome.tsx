@@ -43,7 +43,11 @@ const OnBoarding = () => {
                             resizeMode="contain"
                             />
                         
-                         <Text> { item.title } </Text>                         
+                         <View className="flex flex-row items-center justify-center w-full m-10"> 
+                            <Text>
+                                {item.title}
+                            </Text>
+                        </View>                         
                     </View>
                 ) )}
 
