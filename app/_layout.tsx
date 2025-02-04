@@ -5,6 +5,10 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import './global.css'
+import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo'
+import { Slot } from 'expo-router'
+
+const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
 
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -22,6 +26,14 @@ export default function RootLayout() {
     "Jakarta-SemiBold": require("../assets/fonts/PlusJakartaSans-SemiBold.ttf"),
 });
 
+
+
+if (!publishableKey) {
+  throw new Error(
+    'Missing Publishable Key. Please set EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY in your .env',
+  )
+}
+
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
@@ -33,6 +45,8 @@ export default function RootLayout() {
   }
 
   return (
+    <ClerkProvider publishableKey={publishableKey}>
+      <ClerkLoaded>
       <Stack>
         <Stack.Screen name="index" options={{headerShown: false}}/>
         <Stack.Screen name="(auth)" options={{headerShown: false}}/>
@@ -40,5 +54,7 @@ export default function RootLayout() {
         <Stack.Screen name="(index)" options={{headerShown: false}}/>
         <Stack.Screen name="+not-found" />
       </Stack>
+      </ClerkLoaded>
+    </ClerkProvider>
   );
 }

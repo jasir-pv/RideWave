@@ -9,7 +9,6 @@ import { ScrollView, View, Text, Image } from "react-native";
 const SignIn = () => {
 
     const [form, setForm] = useState({
-        name: '',
         email: '',
         password: '',
 
@@ -60,7 +59,7 @@ const SignIn = () => {
                    <OAuth/>
 
                    <Link href='/sign-up' className="text-lg text-center text-general-200 mt-10">
-                       <Text >Already have an account? </Text>
+                       <Text >Don't have an account? </Text>
                        <Text className="text-primary-700">Log In</Text>
                    </Link>
             </View>
