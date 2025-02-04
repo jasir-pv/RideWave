@@ -7,6 +7,7 @@ import 'react-native-reanimated';
 import './global.css'
 import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo'
 import { Slot } from 'expo-router'
+import { tokenCache } from '@/lib/auth';
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
 
@@ -45,7 +46,8 @@ if (!publishableKey) {
   }
 
   return (
-    <ClerkProvider publishableKey={publishableKey}>
+    <ClerkProvider publishableKey={publishableKey}
+       tokenCache={tokenCache}>
       <ClerkLoaded>
       <Stack>
         <Stack.Screen name="index" options={{headerShown: false}}/>

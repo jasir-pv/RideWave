@@ -1,12 +1,15 @@
-import { Tabs } from "expo-router";
+import { Stack } from 'expo-router';
+import 'react-native-reanimated';
 
-export default function Layout() {
+
+const Layout =() => {
+
+
   return (
-    <Tabs>
-      <Tabs.Screen name="Home" />
-      <Tabs.Screen name="Chat" />
-      <Tabs.Screen name="profile" />
-      <Tabs.Screen name="rides" />
-    </Tabs>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
+      </Stack>
   );
 }
+
+export default Layout;
