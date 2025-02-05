@@ -61,7 +61,7 @@ const SignUp = () => {
           if (signUpAttempt.status === 'complete') {
             // TODO : Create a database User!
             await setActive({ session: signUpAttempt.createdSessionId })
-            setVerification({...verification, state: "succes"})
+            setVerification({...verification, state: "success"})
           } else {
             setVerification({...verification, state: "failed", error:"Verification Failed"})
           }
@@ -144,14 +144,11 @@ const SignUp = () => {
                         You have successfully verified your account.
                     </Text>
 
-                    <CustomButton 
-                        title="Home"
-                        onPress={() => {
-                            setShowSuccessModal(false)
-                            router.push('/(root)/(tabs)/Home')
-                            }}
-                        className="mt-6"/>
-
+                    <CustomButton
+                    title="Browse Home"
+                    onPress={() => router.push(`/(root)/(tabs)/home`)}
+                    className="mt-5"
+                    />
                 </View>
             </ReactNativeModal>
 
