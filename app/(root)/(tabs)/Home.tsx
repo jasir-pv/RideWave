@@ -1,8 +1,9 @@
+import GoogleTextInput from '@/components/GoogleTextInput'
 import RideCard from '@/components/RideCard'
-import { images } from '@/constants'
+import { icons, images } from '@/constants'
 import { SignedIn, SignedOut, useUser } from '@clerk/clerk-expo'
 import { Link } from 'expo-router'
-import { ActivityIndicator, FlatList, Image, Text, View } from 'react-native'
+import { ActivityIndicator, FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 
@@ -109,6 +110,10 @@ export default function Page() {
   const { user } = useUser()
   const loading = true
 
+  const handleSingOut = () => {}
+  const handleDestinationPress = () => {}
+
+
   return (
     <SafeAreaView className='bg-general-500'>
     <FlatList 
@@ -133,7 +138,28 @@ export default function Page() {
           ) }
         </View>
       )}
-      
+      ListHeaderComponent={() => (
+        <>
+        <View className='flex flex-row items-center justify-between my-5'>
+          <Text className='text-xl font-JakartaBold'> Welcome {user?.firstName || user?.emailAddresses[0].emailAddress} 👋 </Text>
+
+          <TouchableOpacity
+            onPress={handleSingOut}
+            className='justify-center items-center w-10 h-10 rounded-full bg-white'
+          >
+            <Image source={icons.out} className='w-5 h-4'/>
+          </TouchableOpacity>
+        </View>
+
+        {/* Google Search input */}
+        <GoogleTextInput 
+          icon= {icons.search}
+          containerStyle ="bg-white shadow-md shadow-neutral-300"
+          handlePress= {handleDestinationPress}
+        />
+        </>
+      )}
+
     />
     </SafeAreaView>
   )
