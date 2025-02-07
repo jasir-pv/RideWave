@@ -30,7 +30,8 @@
     "plugins": [
       ["expo-router",
       {
-        "origin": "https://uber.com"
+        "origin": "https://uber.dev/"
+       
       }],
       
       [

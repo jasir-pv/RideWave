@@ -1,23 +1,38 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import MapView, { PROVIDER_DEFAULT } from 'react-native-maps'
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+
 
 const Map = () => {
+
+
   return (
-    <MapView
-        provider={PROVIDER_DEFAULT} 
-        className='w-full h-full rounded-2xl z-30'
-        tintColor='black'
-        mapType='mutedStandard'
-        showsPointsOfInterest={false}
-        // initialRegion={region}
-        showsUserLocation={true}
-        userInterfaceStyle='light'
+    <View className="w-full h-full flex-1">
+      <View className="flex-1 rounded-2xl overflow-hidden">
+        <MapView
+          provider={PROVIDER_GOOGLE}
+          style={styles.map}
+          tintColor="black"
+          showsPointsOfInterest={false}
+          showsUserLocation={true}
+          userInterfaceStyle="light"
+          
+        >
+        
 
-     >
-        <Text> Map</Text>
-    </MapView>
-  )
-}
+        </MapView>
+      </View>
+    </View>
+  );
+};
 
-export default Map
+
+
+
+const styles = StyleSheet.create({
+  map: {
+    ...StyleSheet.absoluteFillObject, 
+  },
+});
+
+export default Map;
