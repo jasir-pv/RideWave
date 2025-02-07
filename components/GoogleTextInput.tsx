@@ -1,8 +1,10 @@
 import { View, Text, Image } from 'react-native'
-import React from 'react'
-import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete'
+// import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { GoogleInputProps } from '@/types/type'
 import { icons } from '@/constants';
+import 'react-native-get-random-values';
+import PlacesAutocomplete from './PlacesAutocomplete';
+
 
 
 const googlePlacesApiKey = process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
@@ -18,9 +20,9 @@ const GoogleTextInput = ({
   return (
     <View className={`flex flex-row items-center justify-center relative z-50 rounded-xl ${containerStyle} mb-5`}>
       
-      <GooglePlacesAutocomplete 
-        fetchDetails= {true}
-        placeholder='Where you want to go?'
+      <PlacesAutocomplete
+        // fetchDetails= {true}
+        // placeholder='Where you want to go?'
         debounce={200}
         styles={{
           textInputContainer: {
@@ -50,13 +52,13 @@ const GoogleTextInput = ({
 
           }
         }}
-        onPress={(data, details = null) => {
-          handlePress({
-            latitude: details?.geometry.location.lat!,
-            longitude: details?.geometry.location.lng!,
-            address: data.description,
-          })
-        }}
+        // onPress={(data, details = null) => {
+        //   handlePress({
+        //     latitude: details?.geometry.location.lat!,
+        //     longitude: details?.geometry.location.lng!,
+        //     address: data.description,
+        //   })
+        // }}
         query={{
           key: googlePlacesApiKey,
           language: 'en',
@@ -69,6 +71,10 @@ const GoogleTextInput = ({
             />
           </View>
         )}
+        textInputProps={{
+          placeholderTextColor: 'gray',
+          placeholder: initialLocation ?? "Where do you want to go?"
+        }}
       />
     </View>
   )
