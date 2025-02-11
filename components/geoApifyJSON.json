@@ -1,0 +1,284 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "name": "Moscow",
+        "country": "Russia",
+        "country_code": "ru",
+        "region": "Central Federal District",
+        "state": "Moscow",
+        "city": "Moscow",
+        "lon": 37.6174782,
+        "lat": 55.7505412,
+        "result_type": "city",
+        "formatted": "Moscow, Russia",
+        "address_line1": "Moscow",
+        "address_line2": "Russia",
+        "category": "populated_place",
+        "timezone": {
+          "name": "Europe/Moscow",
+          "offset_STD": "+03:00",
+          "offset_STD_seconds": 10800,
+          "offset_DST": "+03:00",
+          "offset_DST_seconds": 10800,
+          "abbreviation_STD": "MSK",
+          "abbreviation_DST": "MSK"
+        },
+        "plus_code": "9G7VQJ28+6X",
+        "plus_code_short": "28+6X Moscow, Russia",
+        "rank": {
+          "importance": 0.7908193282833463,
+          "confidence": 1,
+          "confidence_city_level": 1,
+          "match_type": "full_match"
+        },
+        "place_id": "51197f918609cf4240597a26eabb11e04b40f00101f901fdfc260000000000c002089203064d6f73636f77"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6174782,
+          55.7505412
+        ]
+      },
+      "bbox": [
+        37.290502,
+        55.4913076,
+        37.9674277,
+        55.9577717
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "ref": "RU-MOS",
+        "country": "Russia",
+        "country_code": "ru",
+        "region": "Central Federal District",
+        "state": "Moscow Oblast",
+        "lon": 38.0353929,
+        "lat": 55.5043158,
+        "result_type": "state",
+        "formatted": "Moscow Oblast, Russia",
+        "address_line1": "Moscow Oblast",
+        "address_line2": "Russia",
+        "category": "administrative",
+        "timezone": {
+          "name": "Europe/Moscow",
+          "offset_STD": "+03:00",
+          "offset_STD_seconds": 10800,
+          "offset_DST": "+03:00",
+          "offset_DST_seconds": 10800,
+          "abbreviation_STD": "MSK",
+          "abbreviation_DST": "MSK"
+        },
+        "plus_code": "9G7WG23P+P5",
+        "rank": {
+          "importance": 0.6444066140543844,
+          "confidence": 1,
+          "match_type": "full_match"
+        },
+        "place_id": "515b012ac1870443405994ed8d6b8dc04b40f00101f90122c9000000000000c0020a"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.0353929,
+          55.5043158
+        ]
+      },
+      "bbox": [
+        35.1484955,
+        54.2556959,
+        40.2047168,
+        56.9585118
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "country": "United States",
+        "country_code": "us",
+        "state": "Idaho",
+        "county": "Latah County",
+        "city": "Moscow",
+        "lon": -117.000165,
+        "lat": 46.7323875,
+        "state_code": "ID",
+        "result_type": "city",
+        "formatted": "Moscow, ID, United States of America",
+        "address_line1": "Moscow, ID",
+        "address_line2": "United States of America",
+        "category": "administrative",
+        "timezone": {
+          "name": "America/Los_Angeles",
+          "offset_STD": "-08:00",
+          "offset_STD_seconds": -28800,
+          "offset_DST": "-07:00",
+          "offset_DST_seconds": -25200,
+          "abbreviation_STD": "PST",
+          "abbreviation_DST": "PDT"
+        },
+        "plus_code": "85R4PXJX+XW",
+        "plus_code_short": "+XW Moscow, Latah County, United States",
+        "rank": {
+          "importance": 0.5026345352272938,
+          "confidence": 1,
+          "confidence_city_level": 1,
+          "match_type": "full_match"
+        },
+        "place_id": "51a5660fb402405dc059e63fa4dfbe5d4740f00101f90156da010000000000c00208"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.000165,
+          46.7323875
+        ]
+      },
+      "bbox": [
+        -117.039882,
+        46.6986975,
+        -116.9605363,
+        46.758608
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "country": "Russia",
+        "country_code": "ru",
+        "region": "Central Federal District",
+        "state": "Moscow Oblast",
+        "county": "Voskhod, Moscow Oblast",
+        "lon": 36.465243879235985,
+        "lat": 55.95065235,
+        "result_type": "county",
+        "formatted": "Voskhod, Moscow Oblast, Russia",
+        "address_line1": "Voskhod, Moscow Oblast",
+        "address_line2": "Russia",
+        "category": "administrative",
+        "timezone": {
+          "name": "Europe/Moscow",
+          "offset_STD": "+03:00",
+          "offset_STD_seconds": 10800,
+          "offset_DST": "+03:00",
+          "offset_DST_seconds": 10800,
+          "abbreviation_STD": "MSK",
+          "abbreviation_DST": "MSK"
+        },
+        "plus_code": "9G7RXF28+73",
+        "rank": {
+          "importance": 0.3759772939504354,
+          "confidence": 1,
+          "match_type": "full_match"
+        },
+        "place_id": "51cafd861c8d3b424059ca8ee8f9aef94b40f00101f90104b20f0000000000c00209"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.465243879235985,
+          55.95065235
+        ]
+      },
+      "bbox": [
+        36.4364732,
+        55.9224693,
+        36.493634,
+        55.9796512
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "name": "Moscow",
+        "country": "United Kingdom",
+        "country_code": "gb",
+        "state": "Scotland",
+        "county": "East Ayrshire",
+        "city": "Moscow",
+        "postcode": "KA4 8PN",
+        "village": "Moscow",
+        "lon": -4.4047697,
+        "lat": 55.6329568,
+        "state_code": "SCT",
+        "result_type": "postcode",
+        "formatted": "Moscow (Moscow), KA4 8PN, United Kingdom",
+        "address_line1": "Moscow",
+        "address_line2": "Moscow (Moscow), KA4 8PN, United Kingdom",
+        "county_code": "EAY",
+        "category": "populated_place",
+        "timezone": {
+          "name": "Europe/London",
+          "offset_STD": "+00:00",
+          "offset_STD_seconds": 0,
+          "offset_DST": "+01:00",
+          "offset_DST_seconds": 3600,
+          "abbreviation_STD": "GMT",
+          "abbreviation_DST": "BST"
+        },
+        "plus_code": "9C7QJHMW+53",
+        "rank": {
+          "importance": 0.29190327427879,
+          "confidence": 1,
+          "confidence_city_level": 1,
+          "match_type": "full_match"
+        },
+        "place_id": "519da5bff27b9e11c059f2e379ba04d14b40f00103f901fb68171b00000000c0020792030a4b41342038504e2b6762"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.4047697,
+          55.6329568
+        ]
+      },
+      "bbox": [
+        -4.4247697,
+        55.6129568,
+        -4.3847697,
+        55.6529568
+      ]
+    }
+  ],
+  "query": {
+    "text": "Mosco",
+    "parsed": {
+      "city": "mosco",
+      "expected_type": "unknown"
+    }
+  }
+}
