@@ -88,11 +88,12 @@ const Map = () => {
           provider={PROVIDER_GOOGLE}
           style={styles.map}
           tintColor="black"
-          mapType="mutedStandard"
+          // mapType="mutedStandard"
           showsPointsOfInterest={false}
           initialRegion={region}
           showsUserLocation={true}
           userInterfaceStyle="light"
+          className="w-full h-full"
           
         >
         
