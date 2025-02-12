@@ -66,6 +66,11 @@ import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
       })
 
       useEffect(() => {
+
+        // TODO Remove dirvers
+        // setDrivers(drivers) 
+
+
         if (Array.isArray(drivers)) {
           if (!userLatitude || !userLongitude) return;
     
