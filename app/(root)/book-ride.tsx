@@ -5,6 +5,7 @@ import RideLayout from "@/components/RideLayout";
 import {icons} from "@/constants";
 import {formatTime} from "@/lib/utils";
 import {useDriverStore, useLocationStore} from "@/store";
+import Payment from "@/components/Payment";
 
 const BookRide = () => {
     const {user} = useUser();
@@ -88,7 +89,7 @@ const BookRide = () => {
                 </View>
 
 
-                
+                <Payment />
             </>
         </RideLayout>
     );

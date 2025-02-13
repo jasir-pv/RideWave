@@ -6,9 +6,20 @@ import { useLocationStore } from '@/store'
 import { SignedIn, SignedOut, useUser } from '@clerk/clerk-expo'
 import { Link, router } from 'expo-router'
 import { useEffect, useState } from 'react'
-import { ActivityIndicator, FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Button, FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import * as Location from 'expo-location'
+import * as Sentry from "@sentry/react-native";
+
+Sentry.init({
+  dsn: "https://57c79656737ca51f93b6b801ccec13f8@o4508810679222272.ingest.us.sentry.io/4508810680205312",
+  // Set tracesSampleRate to 1.0 to capture 100% of transactions for tracing.
+  // We recommend adjusting this value in production.
+  tracesSampleRate: 1.0,
+  // profilesSampleRate is relative to tracesSampleRate.
+  // Here, we'll capture profiles for 100% of transactions.
+  profilesSampleRate: 1.0,
+});
 
 
 const recentRides = [
@@ -147,10 +158,10 @@ export default function Page() {
     })
 
     setUserLocation({
-      // latitude: location.coords.latitude,
-      // longitude: location.coords.longitude,
-      latitude: 37.78825,
-      longitude: -122.4324,
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+      // latitude: 37.78825,
+      // longitude: -122.4324,
       address: `${address[0].name}, ${address[0].region}`,
     })
 
