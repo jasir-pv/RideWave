@@ -37,6 +37,8 @@ export async function POST(request: Request) {
     }
 
     const sql = neon(`${process.env.DATABASE_URL}`);
+    console.log("sql:", sql)
+    
 
     const response = await sql`
       INSERT INTO rides ( 
@@ -67,6 +69,8 @@ export async function POST(request: Request) {
       RETURNING *;
     `;
 
+
+console.log("response:",response)
     return Response.json({ data: response[0] }, { status: 201 });
   } catch (error) {
     console.error("Error inserting data into recent_rides:", error);

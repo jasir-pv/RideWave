@@ -117,7 +117,7 @@ const Map = () => {
             title="Destination"
             image={icons.pin}
           />
-          <MapViewDirections
+          {/* <MapViewDirections
             origin={{
               latitude: userLatitude!,
               longitude: userLongitude!,
@@ -129,7 +129,7 @@ const Map = () => {
             apikey={directionsAPI!}
             strokeColor="#0286FF"
             strokeWidth={2}
-          />
+          /> */}
         </>
       )}
     </MapView>
@@ -147,8 +147,5 @@ const Map = () => {
 export default Map;
 
 
-
-
-  // style={styles.map}
 
   
