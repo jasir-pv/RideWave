@@ -28,98 +28,80 @@ const Payment = ({
     destinationLongitude,
   } = useLocationStore();
 
-  const { userId } = useAuth();
+  const { userId } = useAuth(); // Get the authenticated user's ID
   const [success, setSuccess] = useState<boolean>(false);
- 
+
+  const initializePaymentSheet = async () => {
+    try {
+      const data = await fetchAPI("/(api)/(stripe)/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: fullName || email.split("@")[0],
+          email: email,
+          amount: amount,
+        }),
+      });
+
+      const { error } = await initPaymentSheet({
+        merchantDisplayName: "Ryde Inc.",
+        paymentIntentClientSecret: data.paymentIntent.client_secret,
+        customerEphemeralKeySecret: data.ephemeralKey.secret,
+        customerId: data.customer,
+      });
+
+      if (error) {
+        console.error("Payment Sheet Initialization Error:", error);
+        Alert.alert("Initialization Error", error.message);
+        return false; // Return false if initialization fails
+      }
+
+      return true; // Return true if initialization succeeds
+    } catch (error) {
+      console.error("Error initializing payment sheet:", error);
+      Alert.alert("Error", "Failed to initialize payment sheet.");
+      return false;
+    }
+  };
 
   const openPaymentSheet = async () => {
-    await initializePaymentSheet();
+    const initializationSuccess = await initializePaymentSheet();
+
+    if (!initializationSuccess) {
+      Alert.alert("Error", "Payment sheet initialization failed.");
+      return;
+    }
 
     const { error } = await presentPaymentSheet();
 
     if (error) {
-      Alert.alert(`Error code: ${error.code}`, error.message);
+      console.error("Payment Sheet Presentation Error:", error);
+      Alert.alert(`Payment Error: ${error.code}`, error.message);
     } else {
       setSuccess(true);
-    }
-  };
 
-  const initializePaymentSheet = async () => {
-    const { error } = await initPaymentSheet({
-      merchantDisplayName: "Example, Inc.",
-      intentConfiguration: {
-        mode: {
-          amount: parseInt(amount) * 100,
-          currencyCode: "usd",
+      // Create a ride record after successful payment
+      await fetchAPI("/(api)/ride/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        confirmHandler: async (
-          paymentMethod,
-          shouldSavePaymentMethod,
-          intentCreationCallback,
-        ) => {
-          const { paymentIntent, customer } = await fetchAPI(
-            "/(api)/(stripe)/create",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                name: fullName || email.split("@")[0],
-                email: email,
-                amount: amount,
-                paymentMethodId: paymentMethod.id,
-              }),
-            },
-          );
-
-          if (paymentIntent.client_secret) {
-            const { result } = await fetchAPI("/(api)/(stripe)/pay", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                payment_method_id: paymentMethod.id,
-                payment_intent_id: paymentIntent.id,
-                customer_id: customer,
-                client_secret: paymentIntent.client_secret,
-              }),
-            });
-
-            if (result.client_secret) {
-              await fetchAPI("/(api)/ride/create", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  origin_address: userAddress,
-                  destination_address: destinationAddress,
-                  origin_latitude: userLatitude,
-                  origin_longitude: userLongitude,
-                  destination_latitude: destinationLatitude,
-                  destination_longitude: destinationLongitude,
-                  ride_time: rideTime.toFixed(0),
-                  fare_price: parseInt(amount) * 100,
-                  payment_status: "paid",
-                  driver_id: driverId,
-                  user_id: userId,
-                }),
-              });
-
-              intentCreationCallback({
-                clientSecret: result.client_secret,
-              });
-            }
-          }
-        },
-      },
-      returnURL: "myapp://book-ride",
-    });
-
-    if (!error) {
-      // setLoading(true);
+        body: JSON.stringify({
+          origin_address: userAddress,
+          destination_address: destinationAddress,
+          origin_latitude: userLatitude,
+          origin_longitude: userLongitude,
+          destination_latitude: destinationLatitude,
+          destination_longitude: destinationLongitude,
+          ride_time: rideTime.toFixed(0),
+          fare_price: parseInt(amount) * 100,
+          payment_status: "paid",
+          driver_id: driverId,
+          user_id: userId, // Use the authenticated user's ID
+        }),
+      });
     }
   };
 
