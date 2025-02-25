@@ -1,6 +1,6 @@
 import * as SecureStore from 'expo-secure-store'
 import * as AuthSession from 'expo-auth-session'
-import { Linking, Platform } from 'react-native'
+import { Platform } from 'react-native'
 import { TokenCache } from '@clerk/clerk-expo/dist/cache'
 import { fetchAPI } from './fetch'
 
@@ -31,11 +31,12 @@ const createTokenCache = (): TokenCache => {
 export const tokenCache = Platform.OS !== 'web' ? createTokenCache() : undefined
 
 
-export const googleOAuth = async (startOAuthFlow:any) => {
+export const googleOAuth = async (startSSOFlow:any) => {
     try {
-      const { createdSessionId, setActive, signUp } = await startOAuthFlow({
-        redirectUrl: Linking.make("/(root)/(tabs)/home"),
-      });
+      const { createdSessionId, setActive, signUp } = await startSSOFlow({
+        strategy: 'oauth_google',
+        redirectUrl: AuthSession.makeRedirectUri("/(root)/(tabs)/home"),
+      })
 
       // If sign in was successful, set the active session
       if (createdSessionId) {
