@@ -22,8 +22,6 @@ const Map = () => {
     destinationLatitude,
     destinationLongitude,
   } = useLocationStore();
-//  --------------------------------
-console.log("User Location:", userLatitude, userLongitude);
 
   const { selectedDriver, setDrivers } = useDriverStore();
 
