@@ -136,4 +136,4 @@ declare interface DriverCardProps {
   item: MarkerData;
   selected: number;
   setSelected: () => void;
-}
+} 
