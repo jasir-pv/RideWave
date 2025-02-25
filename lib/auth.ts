@@ -48,7 +48,7 @@ export const googleOAuth = async (startSSOFlow:any) => {
               method: 'POST',
               body: JSON.stringify({
                 name: `${signUp.firstName} ${signUp.lastName}`,
-                email: signUp.email,
+                email: signUp.emailAddress,
                 clerkId: signUp.createdUserId
               })
             })
@@ -64,6 +64,7 @@ export const googleOAuth = async (startSSOFlow:any) => {
       } else {
         return {
           success: false,
+          code:'success',
           message: "An error occurred",
           
         }
@@ -72,7 +73,8 @@ export const googleOAuth = async (startSSOFlow:any) => {
       console.log(error)
 
       return {
-        success: true,
+        success: false,
+        code:error.code,
         message: error?.errors[0]?.longMessage,
         
       }
