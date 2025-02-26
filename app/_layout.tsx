@@ -9,6 +9,7 @@ import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo'
 import { Slot } from 'expo-router'
 import { tokenCache } from '@/lib/auth';
 import * as Sentry from '@sentry/react-native';
+import { LogBox } from 'react-native';
 
 Sentry.init({
   dsn: 'https://57c79656737ca51f93b6b801ccec13f8@o4508810679222272.ingest.us.sentry.io/4508810680205312',
@@ -19,6 +20,8 @@ Sentry.init({
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
 
+
+LogBox.ignoreLogs(['Clerk:'])
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
